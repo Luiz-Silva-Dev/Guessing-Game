@@ -8,6 +8,22 @@ int main() {
     cout << "* Welcome to the Guessing Game! *" << endl;
     cout << "***************************************" << endl;
 
+    cout << "Choose the difficulty level:" << endl;
+    cout << "1)Easy 2)Normal 3)Hard" << endl;
+    int choice;
+    cin >> choice;
+
+    int difficulty;
+    if (choice == 1) {
+        difficulty = 15;
+    }
+    else if (choice == 2) {
+        difficulty = 10;
+    }
+    else {
+        difficulty = 5;
+    }
+
     int guess;
     int chance = 0;
     const int SECRETNUMBER = 42;
@@ -16,7 +32,7 @@ int main() {
 
     while (incorrect) {
         
-        if (chance < 3) {
+        if (chance < difficulty) {
             cout << "Enter the secret number: ";
             cin >> guess;
 
