@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -8,11 +10,12 @@ int main() {
     cout << "* Welcome to the Guessing Game! *" << endl;
     cout << "***************************************" << endl;
 
+    while (true) {
     cout << "Choose the difficulty level:" << endl;
     cout << "1)Easy 2)Normal 3)Hard" << endl;
     int choice;
     cin >> choice;
-
+    
     int difficulty;
     if (choice == 1) {
         difficulty = 15;
@@ -26,7 +29,8 @@ int main() {
 
     int guess;
     int chance = 0;
-    const int SECRETNUMBER = 42;
+    srand(time(0));
+    const int SECRETNUMBER = rand() % 100;
     bool incorrect = true;
     double points = 1000.0;
 
