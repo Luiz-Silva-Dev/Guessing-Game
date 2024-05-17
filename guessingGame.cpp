@@ -12,6 +12,7 @@ int main() {
     int chance = 0;
     const int SECRETNUMBER = 42;
     bool incorrect = true;
+    double points = 1000.0;
 
     while (incorrect) {
         
@@ -19,13 +20,18 @@ int main() {
             cout << "Enter the secret number: ";
             cin >> guess;
 
+            double lostPoints = abs(guess - SECRETNUMBER)/2.0;
             bool win = guess == SECRETNUMBER;
             bool bigger = guess > SECRETNUMBER;
+            points -= lostPoints;
 
             if (win) {
                 cout << "Congratulations, you did it!" << endl;
                 incorrect = false;
                 cout << "The game ended with " << chance << " chances" << endl;
+                cout.precision(2);
+                cout << fixed;
+                cout << "His score was " << points << " points" << endl;
                 break;
             }
             else if (bigger){
